@@ -11,25 +11,56 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
+
+//http://apimeme.com/meme?meme=Computer-Horse&top=&bottom=hey
+
 const ResultScreen = () => {
   const [cps, setCps] = useState("");
   const getData = async () => {
     try {
       const value = await AsyncStorage.getItem('@key')
-      if(value !== null) {
+      if (value !== null) {
         // value previously stored
         //console.log(value)
         setCps(value)
       }
-    } catch(e) {
+    } catch (e) {
       // error reading value
       console.log("Could not load data")
     }
   }
   getData();
+
+  const urlString = 'http://apimeme.com/meme?meme=Computer-Horse&top=&bottom=' + cps
   return (
-    <Text>{cps}</Text>
+    <View style={styles.container}>
+      <Text style={styles.result}>Result</Text>
+      <Image
+        style={styles.logo}
+        source={{
+          uri: urlString,
+        }}
+      ></Image>
+    </View>
   )
 }
+
+
+const styles = StyleSheet.create({
+  result: {
+    fontSize: 50,
+  },
+  container: {
+    flex: 1,
+    resizeMode: 'stretch',
+    backgroundColor: 'lightblue',
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  logo: {
+    width: 300,
+    height: 300,
+  },
+});
 
 export default ResultScreen

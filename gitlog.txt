@@ -1,0 +1,17 @@
+commit 0d8c26f294f1f6a8c634bc6b7712e287058df5fe
+Author: Drucker <nicolasamberg@hotmail.com>
+Date:   Fri Jul 8 09:04:24 2022 +0200
+
+    add Level-Buttons to HomeScreen
+
+commit a7ffeab4dc320deb31a07985bb338bb457931152
+Author: Drucker <nicolasamberg@hotmail.com>
+Date:   Fri Jul 8 08:20:11 2022 +0200
+
+    add AsyncStorage for Highscore
+
+commit 152fdff68317b222b56dc97964847ebd48a91d61
+Author: Drucker <nicolasamberg@hotmail.com>
+Date:   Thu Jul 7 13:38:10 2022 +0200
+
+    initial commit
