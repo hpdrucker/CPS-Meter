@@ -7,10 +7,24 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Button, NativeBaseProvider } from 'native-base';
 import { useState } from 'react';
 import CountDown from 'react-native-countdown-component';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 const ResultScreen = () => {
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@storage_Key')
+      if(value !== null) {
+        // value previously stored
+        console.log(value)
+      }
+    } catch(e) {
+      // error reading value
+      console.log("pp3")
+    }
+  }
+  getData();
   return (
     <Text>Henlo</Text>
   )

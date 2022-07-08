@@ -7,9 +7,23 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Button, NativeBaseProvider } from 'native-base';
 import { useState } from 'react';
 import CountDown from 'react-native-countdown-component';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 function GameScreen({ navigation }) {
+    const storeData = async (value) => {
+        try {
+          await AsyncStorage.setItem('@storage_Key', value)
+        } catch (e) {
+          // saving error
+          console.log("pp")
+        }
+      }
+
+      
+      
+    storeData("EEEEEEEEEEEE");  
+    
     const [count, setCount] = useState(0);
     const [cd, setCD] = useState(false);
     const increment = () => setCount(count + 1);
