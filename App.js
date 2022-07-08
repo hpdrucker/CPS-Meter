@@ -21,9 +21,7 @@ export default function App() {
     <NavigationContainer>
       <NativeBaseProvider>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen}
-            options={{ title: "Random Pictures" }}
-          />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ title: "CPS Meter" }}/>
           <Stack.Screen name="Game" component={GameScreen} />
           <Stack.Screen name="Result" component={ResultScreen} />
         </Stack.Navigator>

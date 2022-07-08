@@ -13,16 +13,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 function GameScreen({ navigation }) {
     const storeData = async (value) => {
         try {
-          await AsyncStorage.setItem('@storage_Key', value)
+          await AsyncStorage.setItem('@key', value)
         } catch (e) {
           // saving error
-          console.log("pp")
+          console.log("Could not save Data to AsyncStorage")
         }
       }
 
       
       
-    storeData("EEEEEEEEEEEE");  
+
     
     const [count, setCount] = useState(0);
     const [cd, setCD] = useState(false);
@@ -37,7 +37,9 @@ function GameScreen({ navigation }) {
         
 
     }
-    const result = (count / 5);
+    const result = (count / 3);
+    const resultData = Math.round(result * 100) / 100
+    storeData(resultData + "cps");  
 
     //http://apimeme.com/meme?meme=Computer-Horse&top=&bottom=hey
 
@@ -47,7 +49,7 @@ function GameScreen({ navigation }) {
             <Pressable onPressIn={startGame} style={styles.game}>
                 <CountDown
                     running={cd}
-                    until={5}
+                    until={3}
                     timeToShow={['S']}
                     timeLabels={{ s: "seconds" }}
                     digitStyle={{ backgroundColor: '#FFF' }}
@@ -57,7 +59,7 @@ function GameScreen({ navigation }) {
                 <Text>Starts with first click</Text>
                 <Text></Text>
                 <Text>{count} Clicks</Text>
-                <Text>{result}cps</Text>
+                <Text>{resultData}cps</Text>
             </Pressable>
         </View>
     );

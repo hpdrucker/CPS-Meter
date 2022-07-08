@@ -12,21 +12,23 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const ResultScreen = () => {
+  const [cps, setCps] = useState("");
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem('@storage_Key')
+      const value = await AsyncStorage.getItem('@key')
       if(value !== null) {
         // value previously stored
-        console.log(value)
+        //console.log(value)
+        setCps(value)
       }
     } catch(e) {
       // error reading value
-      console.log("pp3")
+      console.log("Could not load data")
     }
   }
   getData();
   return (
-    <Text>Henlo</Text>
+    <Text>{cps}</Text>
   )
 }
 
